@@ -7,7 +7,7 @@ services:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD 
     volumes:
       - ./.data/mysql:/var/lib/mysql
-      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+#      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
 
   app:
     build:
@@ -15,6 +15,13 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./app/src:/var/www/app
+      - ./app/src/:/var/www/app/
     depends_on:
       - mysql
+
+  composer:
+    image: composer:1.6
+    volumes:
+      - ./app/src/:/var/www/app/
+    working_dir: /var/www/app/
+    command: composer install
