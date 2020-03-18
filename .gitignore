@@ -1,2 +1,4 @@
 .env
+.idea
+.data
 app/src/

@@ -4,10 +4,11 @@ services:
   mysql:
     image: mysql:5.7.24
     environment:
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD 
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
     volumes:
       - ./.data/mysql:/var/lib/mysql
 #      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/docker-entrypoint-initdb.d:/sailx_start.d
 
   app:
     build:
@@ -18,10 +19,16 @@ services:
       - ./app/src/:/var/www/app/
     depends_on:
       - mysql
+      - redis
 
   composer:
     image: composer:1.6
     volumes:
-      - ./app/src/:/var/www/app/
+      - ./app/src:/var/www/app/
     working_dir: /var/www/app/
     command: composer install
+
+  redis:
+        image: redis:4.0
+        ports:
+          - "6379:6379"
