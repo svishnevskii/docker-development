@@ -12,7 +12,10 @@ RUN apt-get update
 
 RUN apt-get install -y nginx php7.2-fpm php7.2-mysql curl
 
-COPY ./infrastructure /etc/nginx/sites-available
+COPY ./hosts /etc/nginx/sites-available
+RUN ln -s /etc/nginx/sites-available/sailx /etc/nginx/sites-enabled/
+RUN ln -s /etc/nginx/sites-available/static /etc/nginx/sites-enabled/
+RUN ln -s /etc/nginx/sites-available/dynamic /etc/nginx/sites-enabled/
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
