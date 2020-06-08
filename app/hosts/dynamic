@@ -1,7 +1,7 @@
 server {
     listen 80;
 
-    server_name test4.sailx.loc;
+    server_name *.sailx.loc;
     root /var/www/app/public;
     index index.php;
 

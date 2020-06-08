@@ -10,12 +10,15 @@ RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
 RUN apt-get update
 
-RUN apt-get install -y nginx php7.2-fpm php7.2-mysql curl
+RUN apt-get install -y nginx  php7.2-fpm php7.2-mysql php7.2-gd curl
+
 
 COPY ./hosts /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/sailx /etc/nginx/sites-enabled/
 RUN ln -s /etc/nginx/sites-available/static /etc/nginx/sites-enabled/
 RUN ln -s /etc/nginx/sites-available/dynamic /etc/nginx/sites-enabled/
+
+
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
@@ -25,5 +28,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
         composer
 
 CMD service php7.2-fpm start && nginx -g "daemon off;"
+
+COPY ./php_conf/php.ini /etc/php/7.2/fpm/php.ini
+RUN service php7.2-fpm restart
 
 EXPOSE 80
