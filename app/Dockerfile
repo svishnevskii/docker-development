@@ -10,13 +10,11 @@ RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
 RUN apt-get update
 
-RUN apt-get install -y nginx  php7.2-fpm php7.2-mysql php7.2-gd curl
+RUN apt-get install -y nginx php7.4 php7.4-fpm php7.4-cli php7.4-common php7.4-gd php7.4-zip php7.4-json php7.4-mbstring php7.4-mysql php7.4-opcache php7.4-zip php7.4-xml php7.4-tidy curl
 
 
 COPY ./hosts /etc/nginx/sites-available
-RUN ln -s /etc/nginx/sites-available/sailx /etc/nginx/sites-enabled/
-RUN ln -s /etc/nginx/sites-available/static /etc/nginx/sites-enabled/
-RUN ln -s /etc/nginx/sites-available/dynamic /etc/nginx/sites-enabled/
+RUN ln -s /etc/nginx/sites-available/hosts /etc/nginx/sites-enabled/
 
 
 
@@ -27,9 +25,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
         echo "alias composer='composer'" >> /root/.bashrc && \
         composer
 
-CMD service php7.2-fpm start && nginx -g "daemon off;"
+CMD service php7.4-fpm start && nginx -g "daemon off;"
 
-COPY ./php_conf/php.ini /etc/php/7.2/fpm/php.ini
-RUN service php7.2-fpm restart
+COPY ./php_conf/php.ini /etc/php/7.4/fpm/php.ini
+RUN service php7.4-fpm restart
 
 EXPOSE 80
