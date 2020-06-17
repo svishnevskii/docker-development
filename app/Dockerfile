@@ -6,6 +6,11 @@ RUN apt-get update
 
 RUN apt-get install -y software-properties-common
 
+RUN apt-get install -y git
+RUN git config --global user.email "vsa@tatmedia.com"
+RUN git config --global user.name "Vishnevskii"
+
+
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
 RUN apt-get update
