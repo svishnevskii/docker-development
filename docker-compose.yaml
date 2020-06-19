@@ -6,11 +6,11 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_ROOT_PASSWORD: secret
     volumes:
       - ./.data/mysql:/var/lib/mysql
 #      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-      - ./mysql/docker-entrypoint-initdb.d:/sailx_start.d
+#      - ./mysql/docker-entrypoint-initdb.d:/sailx_start.d
 
   app:
     build:
