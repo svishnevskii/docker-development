@@ -11,22 +11,23 @@ services:
       - ./.data/mysql:/var/lib/mysql
 #      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
 #      - ./mysql/docker-entrypoint-initdb.d:/sailx_start.d
-
   app:
     build:
       context: ./app
     ports:
       - 80:80
     volumes:
-      - ./app/src/:/var/www/app/
+      - ./app/src/ttm:/var/www/app/
     depends_on:
       - mysql
       - redis
+    environment:
+      - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
 
   composer:
     image: composer:1.6
     volumes:
-      - ./app/src:/var/www/app/
+      - ./app/src/ttm:/var/www/app/
     working_dir: /var/www/app/
     command: composer install
 
