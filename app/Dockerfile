@@ -22,7 +22,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
 RUN apt-get update
 
-
+RUN apt-get install -y nodejs npm
 RUN apt-get install -y nginx php7.4 php7.4-fpm php7.4-intl php7.4-cli php7.4-common php7.4-gd php7.4-zip php7.4-json php7.4-mbstring php7.4-mysql php7.4-opcache php7.4-zip php7.4-xml php7.4-tidy php7.4-imagick php7.4-curl curl
 
 COPY ./hosts/hosts /etc/nginx/sites-available
