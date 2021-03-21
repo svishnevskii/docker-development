@@ -15,19 +15,21 @@ services:
       context: ./app
     ports:
       - 80:80
+    environment:
+      PHP_IDE_CONFIG: "serverName=virtualmachine"
     volumes:
       - ./app/src:/var/www/app/
     depends_on:
       - mysql
       - redis
-      - composer
+#      - composer
 
-  composer:
-    image: composer:1.6
-    volumes:
-      - ./app/src:/var/www/app/
-    working_dir: /var/www/app/
-    command: composer install
+#  composer:
+#    image: composer:1.6
+#    volumes:
+#      - ./app/src:/var/www/app/
+#    working_dir: /var/www/app/
+#    command: composer install
 
   redis:
         image: redis:4.0
