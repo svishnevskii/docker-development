@@ -7,8 +7,10 @@ RUN apt-get update
 
 RUN apt-get install -y software-properties-common
 
-RUN apt-get install -y git
-RUN git config --global user.email "s.vishnevskii@yandex.ruka"
+
+
+RUN apt-get install -y git vim
+RUN git config --global user.email "vishnevskii@yandex.ru"
 RUN git config --global user.name "Vishnevskii"
 
 # SSH Keys
@@ -21,6 +23,8 @@ RUN chmod 600 /root/.ssh/id_rsa &&\
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
 RUN apt-get update
+
+#RUN pecl install xdebug-2.6.1 && docker-php-ext-enable xdebug
 
 #RUN apt-get install -y nodejs npm apt install zip unzip php-zip
 #RUN apt-get install -y nginx php7.2 php7.2-fpm php7.2-intl php7.2-cli php7.2-common php7.2-gd php7.2-zip php7.2-json php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-zip php7.2-xml php7.2-tidy php7.2-imagick php7.2-curl curl
@@ -58,31 +62,29 @@ RUN apt-get update && apt-get install -yq --fix-missing \
     php7.2-xmlrpc \
     php7.2-zip \
     php7.2-xsl \
-    php-geoip \
-    php-mongodb\
-    php-redis \
-    php-ssh2 \
-    php-uuid \
-    php-zmq \
-    php-radius \
-    php-http \
-    php-uploadprogress \
-    php-yaml \
-    php-memcached \
-    php-memcache \
-    php-tideways \
-    php-mailparse \
-    php-raphf \
-    php-stomp \
-    php-zip \
-    php-ds \
-    php-sass \
-    php-lua \
-    php-geos \
-    php-xdebug php-imagick imagemagick nginx curl
+#    php-geoip \
+#    php-mongodb\
+#    php-redis \
+#    php-ssh2 \
+#    php-uuid \
+#    php-zmq \
+#    php-radius \
+#    php-http \
+#    php-uploadprogress \
+#    php-yaml \
+#    php-memcached \
+#    php-memcache \
+#    php-tideways \
+#    php-mailparse \
+#    php-raphf \
+#    php-stomp \
+#    php-zip \
+#    php-ds \
+#    php-sass \
+#    php-lua \
+#    php-geos \
+    imagemagick nginx curl
 
-
-ADD xdebug.ini /usr/local/etc/php/config.d/xdebug.ini
 
 COPY ./hosts/hosts /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/hosts /etc/nginx/sites-enabled/
@@ -96,8 +98,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 CMD service php7.2-fpm start && nginx -g "daemon off;"
 
-COPY ./php_conf/php.ini /etc/php/7.4/fpm/php.ini
-COPY ./php_conf/php.ini /etc/php/7.4/cli/php.ini
+COPY ./php_conf/php.ini /etc/php/7.2/fpm/php.ini
+
+COPY ./xdebug.ini /etc/php/7.2/mods-available/xdebug.ini
 RUN service php7.2-fpm restart
 
 EXPOSE 80

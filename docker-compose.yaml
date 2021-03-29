@@ -1,10 +1,11 @@
-version: '3'
+version: "3.3"
 
 services:
   mysql:
     image: mysql:5.7.24
     ports:
       - "3306:3306"
+      - "9004:9004"
     environment:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
@@ -14,24 +15,26 @@ services:
     build:
       context: ./app
     ports:
-      - 80:80
+      - "80:80"
     environment:
-      PHP_IDE_CONFIG: "serverName=virtualmachine"
+      PHP_IDE_CONFIG: "serverName=tortuga.dep"
+      PHP_EXTENSION_XDEBUG: 1
     volumes:
-      - ./app/src:/var/www/app/
+      - ./app/src/tortuga/:/var/www/app/tortuga/
     depends_on:
       - mysql
       - redis
-#      - composer
-
-#  composer:
-#    image: composer:1.6
-#    volumes:
-#      - ./app/src:/var/www/app/
-#    working_dir: /var/www/app/
-#    command: composer install
 
   redis:
-        image: redis:4.0
-        ports:
-          - "6379:6379"
+    image: redis:4.0
+    ports:
+      - "6379:6379"
+
+  clickhouse:
+    image: yandex/clickhouse-server
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+      - "9009:9009"
+    volumes:
+      - ./.data/clickhouse:/var/lib/clickhouse
