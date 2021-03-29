@@ -20,7 +20,7 @@ services:
       PHP_IDE_CONFIG: "serverName=tortuga.dep"
       PHP_EXTENSION_XDEBUG: 1
     volumes:
-      - ./app/src/tortuga/:/var/www/app/tortuga/
+      - ./app/src/tortuga/:/var/www/app/tortuga:cached
     depends_on:
       - mysql
       - redis
