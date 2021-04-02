@@ -5,7 +5,7 @@ version: "2"
 services:
   app-rsync:
     volumes:
-      - app-rsync-sync:/var/www:nocopy # will be mounted on /var/www
+      - app-rsync-sync:/var/www/tortuga #:nocopy # will be mounted on /var/www
 
 # that the important thing
 volumes:
