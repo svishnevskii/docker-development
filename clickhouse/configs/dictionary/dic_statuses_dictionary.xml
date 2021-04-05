@@ -1,0 +1,43 @@
+<yandex>
+  <dictionary>
+     <name>dic_statuses</name>
+	<source>
+    	  <mysql>	
+            <host>mysql</host>
+            <port>3306</port>
+            <user>root</user>
+            <password>secret</password>
+            <db>tortuga</db>
+            <table>dic_statuses</table>
+          </mysql>
+        </source>	      
+      <layout>
+        <complex_key_hashed />
+      </layout>
+      <structure>
+        <key>
+          <attribute>
+            <name>id</name>
+            <type>UInt64</type>
+          </attribute>
+          <attribute>
+            <name>category_id</name>
+            <type>UInt64</type>
+          </attribute>
+        </key>
+        <attribute>
+          <name>category_id</name>
+          <type>UInt64</type>
+          <null_value></null_value>
+          <injective>false</injective>
+        </attribute>
+        <attribute>
+          <name>name</name>
+          <type>String</type>
+          <null_value></null_value>
+          <injective>false</injective>
+        </attribute>
+      </structure>
+      <lifetime>3600</lifetime>
+  </dictionary>
+</yandex>
