@@ -3,11 +3,12 @@
 
 version: "2"
 services:
-  app-rsync:
+  app-unison:
     volumes:
-      - app-rsync-sync:/var/www/app:nocopy # will be mounted on /var/www
-
+      - appcode-unison-sync:/var/www/app/tortuga:nocopy # will be mounted on /var/www
+#    volumes_from:
+#      - container:app-rsync-sync:rw
 # that the important thing
 volumes:
-  app-rsync-sync:
+  appcode-unison-sync:
     external: true

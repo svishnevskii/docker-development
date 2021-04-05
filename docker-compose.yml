@@ -11,7 +11,7 @@ services:
     volumes:
       - ./.data/mysql:/var/lib/mysql
 
-  app-rsync:
+  app-unison:
     build:
       context: ./app
     ports:
@@ -21,6 +21,8 @@ services:
       PHP_EXTENSION_XDEBUG: 1
 #    volumes:
 #      - ./app/src/tortuga/:/var/www/app/tortuga:cached
+#    volumes_from:
+#      - app-rsync-sync:/var/www/app
     depends_on:
       - mysql
       - redis

@@ -2,11 +2,16 @@ version: "2"
 
 options:
   verbose: true
+  max_attempt: 30
 syncs:
   #IMPORTANT: ensure this name is unique and does not match your other application container name
-  app-rsync-sync: #tip: add -sync and you keep consistent names as a convention
-    src: './app/src/tortuga'
-    sync_host_ip: '127.0.0.1'
-    sync_excludes: ['.idea', '*.sql']
-    sync_host_port: 10872
-    sync_strategy: 'rsync'
+  appcode-unison-sync: #tip: add -sync and you keep consistent names as a convention
+    sync_strategy: 'native_osx'
+    src: './app/src/tortuga/'
+#    dist: ''
+#    sync_host_ip: '127.0.0.1'
+    sync_excludes: ['.idea', '.git',]
+#    sync_userid: 1234
+#    sync_host_port: 10872
+#    sync_args: ['-perms=0']
+#    notify_terminal: true

@@ -1,0 +1,261 @@
+          ok  Starting unison for sync app-rsync-sync
+          ok  app-rsync-sync container still running, restarting unison in container
+     command  docker exec app-rsync-sync supervisorctl restart unison
+          ok  starting initial sync of app-rsync-sync
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-rsync-sync
+     command  unison -testserver /app_sync "socket://127.0.0.1:53794"
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-rsync-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:53794
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//da4a7dda65d3//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     success  Unison server started
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-rsync-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:53794
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//da4a7dda65d3//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-rsync-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:53794 -repeat watch
+Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//da4a7dda65d3//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+          ok  Starting unison for sync app-unison-sync
+          ok  app-unison-sync container still running, restarting unison in container
+     command  docker exec app-unison-sync supervisorctl restart unison
+          ok  starting initial sync of app-unison-sync
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -testserver /app_sync "socket://127.0.0.1:59233"
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:59233
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//dbbfc9673550//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     success  Unison server started
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:59233
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//dbbfc9673550//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:59233 -repeat watch
+Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//dbbfc9673550//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+          ok  Starting unison for sync app-unison-sync
+          ok  app-unison-sync container still running, restarting unison in container
+     command  docker exec app-unison-sync supervisorctl restart unison
+          ok  starting initial sync of app-unison-sync
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -testserver /app_sync "socket://127.0.0.1:59233"
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:59233
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//dbbfc9673550//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     success  Unison server started
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:59233
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//dbbfc9673550//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:59233 -repeat watch
+Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//dbbfc9673550//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+          ok  Starting unison for sync appcode-unison-sync
+          ok  appcode-unison-sync container still running, restarting unison in container
+     command  docker exec appcode-unison-sync supervisorctl restart unison
+          ok  starting initial sync of appcode-unison-sync
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -testserver /app_sync "socket://127.0.0.1:60528"
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:60528
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//245b13210769//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     success  Unison server started
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:60528
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//245b13210769//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:60528 -repeat watch
+Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//245b13210769//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+          ok  Starting unison for sync appcode-unison-sync
+          ok  appcode-unison-sync container still running, restarting unison in container
+     command  docker exec appcode-unison-sync supervisorctl restart unison
+          ok  starting initial sync of appcode-unison-sync
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -testserver /app_sync "socket://127.0.0.1:60861"
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:60861
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//1470d5652609//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     success  Unison server started
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:60861
+       error  Error starting sync, exit code 0
+     message  
+     message  Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//1470d5652609//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' appcode-unison-sync
+     command  unison -ignore='Name .idea' -ignore='Name *.sql' '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -auto -batch -prefer '/Users/sergey/SkillDocker/ttm/vm1/app/src/testdir/' -copyonconflict socket://127.0.0.1:60861 -repeat watch
+Unison 2.51.3.70 (ocaml 4.12.0): Contacting server...
+Connected [//1470d5652609//app_sync -> //sergey.local//Users/sergey/SkillDocker/ttm/vm1/app/src/testdir]
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Dumping archives to ~/unison.dump on both hosts
+Finished dumping archives
+Fatal error: Internal error: New archives are not identical.
+Retaining original archives.  Please run Unison again to bring them up to date.
+
+          ok  Starting native_osx for sync appcode-unison-sync
+          ok  appcode-unison-sync container still running, restarting unison in container
+     command  docker exec appcode-unison-sync supervisorctl restart unison
+unison: stopped
+unison: started
+          ok  starting initial sync of appcode-unison-sync
+     success  Sync container started
+     success  Showing unison logs from your sync container: appcode-unison-sync
+[2021-04-03 16:38:37 +0300] Sync Log:  Synchronization complete at 16:32:15  (5 items transferred, 0 skipped, 0 failed)
+[2021-04-03 16:38:37 +0300] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 16:32:17.94 on 03 Apr 2021
+[2021-04-03 16:38:37 +0300] Sync Log:  [BGN] Copying web/assets/334f406e/grid-col-collapse.js from /app_sync to /host_sync
+[2021-04-03 16:38:37 +0300] Sync Log:  [END] Copying web/assets/334f406e/grid-col-collapse.js
+[2021-04-03 16:38:37 +0300] Sync Log:  [BGN] Copying web/assets/334f406e/grid-switcher.js from /app_sync to /host_sync
+[2021-04-03 16:38:37 +0300] Sync Log:  [END] Copying web/assets/334f406e/grid-switcher.js
+[2021-04-03 16:38:37 +0300] Sync Log:  [BGN] Copying web/assets/759cb430 from /app_sync to /host_sync
+[2021-04-03 16:38:37 +0300] Sync Log:  [END] Copying web/assets/759cb430
+[2021-04-03 16:38:37 +0300] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 16:32:18.00 on 03 Apr 2021
+[2021-04-03 16:38:37 +0300] Sync Log:  Synchronization complete at 16:32:18  (3 items transferred, 0 skipped, 0 failed)
+          ok  Starting native_osx for sync appcode-unison-sync
+          ok  appcode-unison-sync container still running, restarting unison in container
+     command  docker exec appcode-unison-sync supervisorctl restart unison
+unison: stopped
+unison: started
+          ok  starting initial sync of appcode-unison-sync
+     success  Sync container started
+     success  Showing unison logs from your sync container: appcode-unison-sync
