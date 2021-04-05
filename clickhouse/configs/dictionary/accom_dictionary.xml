@@ -1,0 +1,36 @@
+<yandex>
+  <dictionary>
+      <name>accom</name>
+      <source>
+        <mysql>
+          <host>mysql</host>
+          <port>3306</port>
+          <user>root</user>
+          <password>secret</password>
+          <db>tortuga</db>
+          <table>dic_accom_models</table>
+        </mysql>
+      </source>
+
+      <layout>
+        <complex_key_hashed />
+      </layout>
+
+      <structure>
+        <key>
+          <attribute>
+            <name>model_name</name>
+            <type>String</type>
+          </attribute>
+        </key>
+        <attribute>
+          <name>lot_name</name>
+          <type>String</type>
+          <null_value></null_value>
+          <injective>false</injective>
+        </attribute>
+      </structure>
+
+      <lifetime>3600</lifetime>
+  </dictionary>
+</yandex>

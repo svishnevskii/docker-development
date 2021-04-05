@@ -1,0 +1,74 @@
+<yandex>
+<!--TB-->
+  <dictionary>
+    <name>tb</name>
+
+  <source>
+    <mysql>
+        <host>mysql</host>
+          <port>3306</port>
+          <user>root</user>
+          <password>secret</password>
+        <db>tortuga</db>
+        <table>tb</table>
+    </mysql>
+  </source>
+
+      <layout>
+        <flat />
+      </layout>
+
+      <structure>
+        <id>
+            <name>id</name>
+        </id>
+        <attribute>
+          <name>name</name>
+          <type>String</type>
+          <null_value></null_value>
+          <injective>false</injective>
+        </attribute>
+      </structure>
+
+      <lifetime>3600</lifetime>
+  </dictionary>
+  <!--GOSB-->
+  <dictionary>
+    <name>tb_gosb</name>
+
+  <source>
+    <mysql>
+        <host>mysql</host>
+          <port>3306</port>
+          <user>root</user>
+          <password>secret</password>
+        <db>tortuga</db>
+        <table>tb_gosb</table>
+    </mysql>
+  </source>
+
+      <layout>
+        <flat />
+      </layout>
+
+      <structure>
+        <id>
+            <name>id</name>
+        </id>
+        <attribute>
+          <name>name</name>
+          <type>String</type>
+          <null_value></null_value>
+          <injective>false</injective>
+        </attribute>
+        <attribute>
+          <name>tb_id</name>
+          <type>UInt64</type>
+          <null_value></null_value>
+          <injective>false</injective>
+        </attribute>
+      </structure>
+
+      <lifetime>3600</lifetime>
+  </dictionary>
+</yandex>
