@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   mysql:
+    container_name: mysql
     image: mysql:5.7.24
     ports:
       - "3306:3306"
@@ -12,6 +13,7 @@ services:
       - ./.data/mysql:/var/lib/mysql
 
   app-unison:
+    container_name: app
     build:
       context: ./app
     ports:
@@ -26,13 +28,16 @@ services:
     depends_on:
       - mysql
       - redis
+      - clickhouse
 
   redis:
+    container_name: redis
     image: redis:4.0
     ports:
       - "6379:6379"
 
   clickhouse:
+    container_name: clickhouse
     image: yandex/clickhouse-server
     ports:
       - "8123:8123"
@@ -41,6 +46,7 @@ services:
     volumes:
       - ./.data/clickhouse:/var/lib/clickhouse
       - ./clickhouse/configs/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/configs/users.xml:/etc/clickhouse-server/users.xml
       - ./clickhouse/configs/dictionary:/etc/clickhouse-server/dictionary/
 #      - ./clickhouse/configs/accom_dictionary.xml:/etc/clickhouse-server/accom_dictionary.xml
 #      - ./clickhouse/configs/dic_statuses_dictionary.xml:/etc/clickhouse-server/dic_statuses_dictionary.xml
