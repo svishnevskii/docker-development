@@ -1,14 +1,8 @@
-# this is our development docker-compose building on top of the production docker-compose, just mounting
-# the sync image - not redefining anything else
-
 version: "2"
 services:
   app-unison:
     volumes:
-      - appcode-unison-sync:/var/www/app/tortuga:nocopy # will be mounted on /var/www
-#    volumes_from:
-#      - container:app-rsync-sync:rw
-# that the important thing
+      - appcode-unison-sync:/var/www/app/tortuga:nocopy
 volumes:
   appcode-unison-sync:
     external: true

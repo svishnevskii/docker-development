@@ -11,6 +11,7 @@ services:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
       - ./.data/mysql:/var/lib/mysql
+      - ./mysql/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
 
   app-unison:
     container_name: app
@@ -19,12 +20,7 @@ services:
     ports:
       - "80:80"
     environment:
-      PHP_IDE_CONFIG: "serverName=tortuga.dep"
       PHP_EXTENSION_XDEBUG: 1
-#    volumes:
-#      - ./app/src/tortuga/:/var/www/app/tortuga:cached
-#    volumes_from:
-#      - app-rsync-sync:/var/www/app
     depends_on:
       - mysql
       - redis
@@ -45,10 +41,11 @@ services:
       - "9009:9009"
     volumes:
       - ./.data/clickhouse:/var/lib/clickhouse
+      # General config
       - ./clickhouse/configs/config.xml:/etc/clickhouse-server/config.xml
       - ./clickhouse/configs/users.xml:/etc/clickhouse-server/users.xml
+      # Dictionary
       - ./clickhouse/configs/dictionary:/etc/clickhouse-server/dictionary/
-#      - ./clickhouse/configs/accom_dictionary.xml:/etc/clickhouse-server/accom_dictionary.xml
-#      - ./clickhouse/configs/dic_statuses_dictionary.xml:/etc/clickhouse-server/dic_statuses_dictionary.xml
-#      - ./clickhouse/configs/tb_gosb_dictionary.xml:/etc/clickhouse-server/tb_gosb_dictionary.xml
-#      - ./clickhouse/configs/users_dictionary.xml:/etc/clickhouse-server/users_dictionary.xml
+      # Dump your Clickhouse
+      - ./clickhouse/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
+
