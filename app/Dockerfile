@@ -7,9 +7,7 @@ RUN apt-get update
 
 RUN apt-get install -y software-properties-common
 
-RUN apt-get install -y git vim
-RUN git config --global user.email "${GIT_USER_NAME}"
-RUN git config --global user.name "${GIT_USER_EMAIL}"
+RUN apt-get install -y vim nginx curl
 
 # SSH Keys
 ADD .ssh/id_rsa /root/.ssh/id_rsa
@@ -56,28 +54,7 @@ RUN apt-get update && apt-get install -yq --fix-missing \
     php7.2-xmlrpc \
     php7.2-zip \
     php7.2-xsl \
-#    php-geoip \
-#    php-mongodb\
-#    php-redis \
-#    php-ssh2 \
-#    php-uuid \
-#    php-zmq \
-#    php-radius \
-#    php-http \
-#    php-uploadprogress \
-#    php-yaml \
-#    php-memcached \
-#    php-memcache \
-#    php-tideways \
-#    php-mailparse \
-#    php-raphf \
-#    php-stomp \
-#    php-zip \
-#    php-ds \
-#    php-sass \
-#    php-lua \
-#    php-geos \
-    imagemagick nginx curl
+    imagemagick
 
 
 COPY ./hosts/hosts /etc/nginx/sites-available
