@@ -7,11 +7,9 @@ RUN apt-get update
 
 RUN apt-get install -y software-properties-common
 
-
-
 RUN apt-get install -y git vim
-RUN git config --global user.email "vishnevskii@yandex.ru"
-RUN git config --global user.name "Vishnevskii"
+RUN git config --global user.email "${GIT_USER_NAME}"
+RUN git config --global user.name "${GIT_USER_EMAIL}"
 
 # SSH Keys
 ADD .ssh/id_rsa /root/.ssh/id_rsa

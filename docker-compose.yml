@@ -8,7 +8,9 @@ services:
       - "3306:3306"
       - "9004:9004"
     environment:
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - ./.data/mysql:/var/lib/mysql
       - ./mysql/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
@@ -35,6 +37,9 @@ services:
   clickhouse:
     container_name: clickhouse
     image: yandex/clickhouse-server
+    environment:
+      - CLICKHOUSE_USER=${CLICKHOUSE_USER}
+      - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
     ports:
       - "8123:8123"
       - "9000:9000"

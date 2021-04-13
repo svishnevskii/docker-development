@@ -1,6 +1,6 @@
 .env
 .idea
 .data
-.docker-sync/
+.docker-sync
 app/.ssh/id_*
 app/src/
