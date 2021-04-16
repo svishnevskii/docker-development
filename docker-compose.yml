@@ -21,6 +21,7 @@ services:
       - "80:80"
     environment:
       PHP_EXTENSION_XDEBUG: 1
+      PHP_IDE_CONFIG: "serverName=tortuga.dep"
     depends_on:
       - mysql
       - redis
@@ -47,5 +48,5 @@ services:
       # Dictionary
       - ./clickhouse/configs/dictionary:/etc/clickhouse-server/dictionary/
       # Dump your Clickhouse
-      - ./clickhouse/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
+#      - ./clickhouse/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
 
