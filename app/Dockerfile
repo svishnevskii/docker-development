@@ -10,7 +10,7 @@ RUN apt-get install -y software-properties-common
 
 
 RUN apt-get install -y git vim
-RUN git config --global user.email "vishnevskii@yandex.ru"
+RUN git config --global user.email "savishnevskiy@sberbank.ru"
 RUN git config --global user.name "Vishnevskii"
 
 # SSH Keys
@@ -79,7 +79,7 @@ RUN apt-get update && apt-get install -yq --fix-missing \
 #    php-sass \
 #    php-lua \
 #    php-geos \
-    imagemagick nginx curl
+    imagemagick unzip nginx curl
 
 
 COPY ./hosts/hosts /etc/nginx/sites-available

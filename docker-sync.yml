@@ -7,7 +7,7 @@ syncs:
   appcode-unison-sync:
     sync_strategy: 'rsync'
     src: './app/src/tortuga/'
-    sync_excludes: ['.idea', '.git',]
+    sync_excludes: ['.idea', '.git']
     sync_args: '-v --copy-links --hard-links'
     sync_host_ip: '127.0.0.1'
     sync_host_port: 10872
