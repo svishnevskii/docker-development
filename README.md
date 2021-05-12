@@ -34,7 +34,7 @@ Install `sudo brew install unison` for twice sync between your local volume and 
 > `docker exec -it app yii migrate`
 
 
-### Containers before build:
+### Containers after build:
 * app (Nginx, PHP)
 * mysql (Mysql)
 * redis (Redis)
