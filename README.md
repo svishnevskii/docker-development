@@ -16,7 +16,9 @@ Install `sudo brew install unison` for twice sync between your local volume and 
 
 ### 1. Clone this dev environment
 Clone this dev environment repository into your local path <br>
-```git clone git@github.com:svishnevskii/docker-development.git```
+```git clone https://github.com/svishnevskii/docker-development```<br>
+and after switch branch on ```git checkout master/rsync-sync```
+
 
 ### 2. Download project
 Clone remote repository of project to `./app/src/` folder <br><br>
