@@ -7,13 +7,7 @@ RUN apt-get update
 
 RUN apt-get install -y software-properties-common
 
-
-
-RUN apt-get install -y git vim
-RUN git config --global user.email "savishnevskiy@sberbank.ru"
-RUN git config --global user.name "Vishnevskii"
-
-# SSH Keys
+# SSH Keys if exists
 ADD .ssh/id_rsa /root/.ssh/id_rsa
 ADD .ssh/id_rsa.pub /root/.ssh/id_rsa.pub
 
@@ -58,44 +52,24 @@ RUN apt-get update && apt-get install -yq --fix-missing \
     php7.2-xmlrpc \
     php7.2-zip \
     php7.2-xsl \
-#    php-geoip \
-#    php-mongodb\
-#    php-redis \
-#    php-ssh2 \
-#    php-uuid \
-#    php-zmq \
-#    php-radius \
-#    php-http \
-#    php-uploadprogress \
-#    php-yaml \
-#    php-memcached \
-#    php-memcache \
-#    php-tideways \
-#    php-mailparse \
-#    php-raphf \
-#    php-stomp \
-#    php-zip \
-#    php-ds \
-#    php-sass \
-#    php-lua \
-#    php-geos \
     imagemagick unzip nginx curl
 
-
-COPY ./hosts/hosts /etc/nginx/sites-available
-RUN ln -s /etc/nginx/sites-available/hosts /etc/nginx/sites-enabled/
-
-# Install composer
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer --version=1.10.21 \
         --install-dir=/usr/local/bin && \
         echo "alias composer='composer'" >> /root/.bashrc
 
-CMD service php7.2-fpm start && nginx -g "daemon off;"
-
+# Import containers config
 COPY ./php_conf/php.ini /etc/php/7.2/fpm/php.ini
-
 COPY ./xdebug.ini /etc/php/7.2/mods-available/xdebug.ini
-RUN service php7.2-fpm restart
+
+COPY ./hosts/hosts /etc/nginx/sites-available
+RUN ln -s /etc/nginx/sites-available/hosts /etc/nginx/sites-enabled/
+
+# Set acces for static files
+RUN chmod -R 777 /var/www/app/tortuga/web/assets/
+
+CMD service php7.2-fpm start && nginx -g "daemon off;"
 
 EXPOSE 80
