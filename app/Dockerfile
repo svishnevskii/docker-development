@@ -16,8 +16,6 @@ RUN chmod 600 /root/.ssh/id_rsa &&\
 
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
-RUN apt-get update
-
 RUN apt-get update && apt-get install -yq --fix-missing \
     php7.2 \
     php7.2-bcmath \
